@@ -1,0 +1,12 @@
+@import "./vendor/normalize-scss/sass/_normalize.scss";
+
+$app-default: #1e3965;
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: $app-default;
+}
