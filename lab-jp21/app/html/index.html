@@ -1,0 +1,27 @@
+<DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <title>Goo adventure</title>
+    <script src="bundle.js"></script>
+    <link rel+'stylesheet' href="bundle.css">
+  </head>
+  <body>
+    <main ng-controller="GameComtroller as gameCtrl">
+      <h1> Welcome to Goo</h1>
+      <form name="gamePadForm" novalidate ng-init="gamePadForm.direction = 'north'" >
+        <label for="direction"> Direction:</label>
+        <select name="direction" ng-model="direction in gameCtrl.directions" value="{{direction}}">
+          <option ng-repeat="direction in gameCtrl.directions" value="{{direction}}" ng-init="gamePadForm.direction ='north'">
+            {{direction}} -&gt;
+          </option>
+        </select>
+
+        <button type="button" ng-click="gameCtrl.moveDirection(gamePadForm.direction)"/>
+      </form>
+      <ol>
+        <li ng-repeat="item in gameCtrl.history track by item.id"> {{item.text}} </li>
+      </ol>
+
+    </main>
+  </body>
+</html>
