@@ -9,12 +9,14 @@ describe('testing GameComtroller', function() {
     });
   });
   beforeEach(() => {
+    this.gameCtrl.history = [];
     this.gameCtrl.player = {
-      name:'Jack',
-      location: 'roomA',
+      name:'Johnny',
+      location: 'roomC',
     };
   });
-  it('the player should change location', () => {
-    expect(this.gameCtrl.player.location).toBe('')
-  })
+  it('the player should change locations', () => {
+    this.gameCtrl.moveDirection('east');
+    expect(this.gameCtrl.player.location).toBe('roomD');
+  });
 });

@@ -4,23 +4,23 @@ const ExtractText = require('extract-text-webpack-plugin');
 const autopreFixer = require('autoprefixer');
 
 module.exports= {
-entry: `${__dirname}/app/entry.js`,
+  entry: `${__dirname}/app/entry.js`,
   output: {
     path: 'build',
     filename: 'bundle.js',
   },
-plugins: [
-new ExtractText('bundle.css'),
+  plugins: [
+    new ExtractText('bundle.css'),
 
-],
+  ],
 
-sassLoader: {
-  includePaths: [`${__dirname}/app/scss/lib`],
-},
+  sassLoader: {
+    includePaths: [`${__dirname}/app/scss/lib`],
+  },
 
-postcss: function() {
-  return [autoprefixer];
-},
+  postcss: function() {
+  return [autopreFixer];
+  },
   module: {
     loaders: [
       {
@@ -31,10 +31,10 @@ postcss: function() {
         test: /\.js$/,
         loader: 'babel',
         exclude: /node_modules/,
-          query: {
-            presets: ['es2015']
-        }
-      }
-    ]
-  }
-}
+        query: {
+          presets: ['es2015'],
+        },
+      },
+    ],
+  },
+};

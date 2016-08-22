@@ -1,6 +1,7 @@
-@import "./vendor/normalize-scss/sass/_normalize.scss";
+@import "vendor/normalize/_normalize.scss";
+@include normalize();
 
-$app-default: #1e3965;
+$app-default: #3395FF;
 
 html, body {
   width: 100%;

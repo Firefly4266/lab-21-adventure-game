@@ -1,8 +1,12 @@
 // Karma configuration
 // Generated on Wed Aug 17 2016 15:32:23 GMT-0700 (PDT)
 
+const webpackConfig = require('./webpack.config.js');
+webpackConfig.entry = {};
+
 module.exports = function(config) {
   config.set({
+    webpack: webpackConfig,
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
     basePath: '',
@@ -15,7 +19,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'app/entry.js'
+      'app/entry.js',
+      'test/*-test.js',
+      'node_modules/angular-mocks/angular-mocks.js',
     ],
 
 
@@ -27,6 +33,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'app/entry.js': ['webpack'],
+      'test/*-test.js': ['babel']
     },
 
 
@@ -65,5 +73,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};
