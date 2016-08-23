@@ -3,10 +3,10 @@
 const angular = require('angular');
 const demoApp = angular.module('demoApp');
 
-demoApp.controller('GameComtroller', ['$log', GameController]);
+demoApp.controller('GameController', ['$log', GameController]);
 
 function GameController($log) {
-  this.history = [{id: 0, text: 'You are on an adventure with Johnny!'}];
+  this.history = [{id: 0, text: 'You are searching for Johnny!'}];
 
   this.directions = ['north', 'south', 'east', 'west'];
 
